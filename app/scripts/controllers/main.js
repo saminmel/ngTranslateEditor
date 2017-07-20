@@ -26,6 +26,12 @@ angular.module('translatorApp')
       dest: ''
     }
     $scope.data.disableDownload = true;
+    $scope.setTranslated = function() {
+      angular.forEach($scope.data.finalJson, function(value, key){
+        var translated = document.getElementById('original-' + key).innerText;
+        value.translate = translated;
+      });
+    }
 
     $scope.readFile = function (files, target) {
       var JsonObj = null,
